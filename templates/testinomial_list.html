@@ -1,0 +1,107 @@
+{% extends "header-all.html"%}
+{% block title %}{% endblock %}
+{% load static %}
+{% block content %}
+{% load mathfilters %}
+{% load humanize %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+<style>
+	.create_im{text-align: right;margin-top: 3%;margin-bottom: 3%;}
+	.title_blog{color: #212529 !important;}
+	.title_blog:hover{color: #f5791f !important;text-decoration: none;}
+	thead tr th {
+	    border-right: 0px solid;
+	}
+	tbody tr td {
+    border-right: 0px solid !important;
+    padding-left: 0px !important;
+    padding-top: 5px !important;
+	}
+</style>
+
+<div class="container register">
+	<h4 style="font-weight: 700;margin-top: 3%;line-height: 0px;">Testinomials</h4>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 create_im">
+			<a href="/create-testinomial/"><button class="btn btn-success">Create Testinomial</button></a>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th width="20%">Sl No</th>
+					<th width="20%">Title</th>
+					<th width="40%">Content</th>
+					<th width="10%">Created On</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% with test.number as name %}
+				{% for i in test %}
+				<tr>
+					<td>{{name|sub:1|mul:10|add:forloop.counter}}</td>
+					<td>{{i.title}}</td>
+					<td>{{i.content|safe}}</td>
+					<td>{{i.created_on}}</td>
+					<td><a href="/testinomial-edit/{{i.id}}/"><button class="btn btn-danger">Edit</button></a></td>
+				</tr>
+				{% empty %}
+				<td>No Records Found.</td>
+				{% endfor %}
+				{% endwith %}
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center row marl margin_btm">
+		<div class="col-md-12 col-sm-12 col-xs-12 padding_2">
+			<div class="pagination_outer">
+				<div class="pagination_count_left">
+					<span class="step-links pull-left">
+						<span>Total Count : <b> {{ test.paginator.count }}</b></span>
+							{% if not test.paginator.num_pages == 1 %} |  
+								<span class="current">
+									Page <b>{{ test.number }}</b> of {{ test.paginator.num_pages }} of <b>{{ test.paginator.count }}</b> Articles
+								</span>
+							{% endif %}
+					</span>
+				</div>
+				<div class="pagination_count_right pull-right">
+					{% if not test.paginator.num_pages == 1 %}
+						<ul class="pagination">
+							{% if test.has_previous %}
+								<li><a href="{{ request.path }}?page={{ test.previous_page_number }}" class="grey-button-bordered button-pagination semi-rounded"><i class="fa fa-chevron-left" aria-hidden="true"></i> Prev</a></li>
+							{% else %}
+								<li class="disabled"><span class="grey-button-bordered button-pagination semi-rounded"><i class="fa fa-chevron-left" aria-hidden="true"></i> Prev</span></li>
+							{% endif %}
+
+							{% if test.number|add:'-4' > 1 %}
+								<li><a href="{{ request.path }}?page={{ test.number|add:'-5' }}" class="grey-button button-pagination semi-rounded">&hellip;</a></li>
+							{% endif %}
+
+							{% for i in test.paginator.page_range %}
+								{% if test.number == i %}
+									<li class="active"><span class="grey-button button-pagination semi-rounded">{{ i }} <span class="sr-only">(current)</span></span></li>
+								{% elif i > test.number|add:'-5' and i < test.number|add:'5' %}
+									<li><a href="{{ request.path }}?page={{ i }}" class="grey-button-bordered button-pagination semi-rounded">{{ i }}</a></li>
+								{% endif %}
+							{% endfor %}
+
+							{% if test.paginator.num_pages > test.number|add:'4' %}
+								<li><a href="{{ request.path }}?page={{ test.number|add:'5' }}" class="grey-button-bordered button-pagination semi-rounded">&hellip;</a></li>
+							{% endif %}
+
+							{% if test.has_next %}
+								<li><a href="{{ request.path }}?page={{ test.next_page_number }}" class="grey-button-bordered button-pagination semi-rounded">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+							{% else %}
+								<li class="disabled"><span class="grey-button-bordered button-pagination semi-rounded">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></span></li>
+							{% endif %}
+						</ul>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

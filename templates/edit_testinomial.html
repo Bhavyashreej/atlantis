@@ -1,0 +1,41 @@
+{% extends "header-all.html"%}
+{% block title %}{% endblock %}
+{% load static %}
+{% block content %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  	<link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.6/tinymce.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.6/jquery.tinymce.min.js"></script>
+
+<div class="container register">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<h4>Edit Testinomial</h4>
+	</div>
+	<form action="/testinomial-edit/{{test_instance.id}}/" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						<label>Title (*)</label>
+						{{test_form.title}}
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						<label>Slug (*)</label>
+						{{ test_form.slug }}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 reg_mar">
+				<label>Content</label>
+				{{test_form.content}}
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 reg_btn">
+				<button class="btn btn-success" type="submit">Save</button>
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}

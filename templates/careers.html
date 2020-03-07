@@ -1,0 +1,94 @@
+{% extends "header-all.html" %}
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block keyword %}{% endblock %}
+{% load static %}
+{% block content %}
+<div class="breadcumb-area bg-img" style="background-image: url(/static/img/bg-img/breadcumb.jpg);">
+    <div class="bradcumbContent">
+        <h2>Careers</h2>
+    </div>
+</div>
+<section class="about-us-area mt-50 section-padding-100-0">
+    <div class="section-heading text-center mx-auto wow fadeInUp no-padding" data-wow-delay="300ms">
+        <h3>Join Us</h3>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 container_pad">
+        <div class="row">
+            <div class="col-md-10 col-sm-10 col-xs-12">
+                <div class="container-fluid ">        
+                    <div class="col-sm-12 col-xs-12 col-md-12 wow fadeInUp no-padding" data-wow-delay="400ms">
+                        <div class="content_justify ">
+                            <p>We are passionate about creating learning environments that prepare children for life and work in 21st century. </p>
+                            <p>We are looking to hire <b>Multiple Positions</b> for our upcoming projects in India. Applications from candidates with prior experience in setup and management of at least three schools are welcome. Experience in academic management is an advantage. Are you interested to join our mission ? Submit a copy of your resume here.</p>
+                        </div>
+                    </div>                        
+                </div>
+                <div class="container-fluid   wow fadeInUp mb-70" data-wow-delay="500ms">
+                    <div class="post-title no-padding">
+                        <h4>Now Hirings</h4>
+                    </div>
+                    <div id="accordion" role="tablist" class="mt-15">
+                        {% for job_detail in job_detail %}
+                            <!-- Accordion Start -->    
+                            <div class="card card-grey career_head">
+                                <div class="card-header card-header-grey" role="tab" id="heading_{{job_detail.id}}">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapse_{{job_detail.id}}" aria-expanded="true" aria-controls="collapseOne">
+                                            {{forloop.counter}}. {{job_detail.job_title}}
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapse_{{job_detail.id}}" class="collapse padding_l5" role="tabpanel" aria-labelledby="heading_{{job_detail.id}}" data-parent="#accordion">
+                                    <div class="card-body card-body-grey content_justify">
+                                        <h6>Job Description / Responsibilities</h6>
+                                        <p class="pre_p">{{job_detail.job_description}}</p><br>
+                                        {% if job_detail.qualification %}
+                                            <h6>Qualification</h6>
+                                            <p class="pre_p">{{job_detail.qualification}}</p><br>
+                                        {% endif %}
+                                        <h6>Job Duties / Responsibilities</h6>
+                                        <p class="pre_p">{{job_detail.job_duties}}</p><br>
+                                        <h6>Desired profile of the candidate</h6>
+                                        <p class="pre_p">{{job_detail.desired_profile}}</p><br>
+                                        <h6>Experience & Qualification</h6>
+                                        <p class="pre_p">{{job_detail.experience_qualification}}</p><br>
+                                        <h6>Salary range</h6>
+                                        <p class="pre_p">{{job_detail.salary_range}}</p><br>
+                                        {% if job_detail.no_of_position %}
+                                            <h6>No of Positions looking to hire</h6>
+                                            <p class="pre_p">{{job_detail.no_of_position}}</p><br>
+                                        {% endif %}
+                                        <h6>Location of posting</h6>
+                                        <p class="pre_p">{{job_detail.location}}</p>
+                                        <!-- <div class="col-12" style="padding-left: 0px;">
+                                            <button type="button" class="btn academy-btn btn-sm" data-toggle="modal" data-target="#myModal">Apply Now</button>
+                                        </div>  -->                          
+                                            <button type="button" class="btn academy-btn btn-sm"><a class="now_apply" target="blank" href="https://www.educatorone.com/educator_landing/">Apply Now</a></button>                             
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>  
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-12 no_display">
+                <div style="position: sticky;top: 25%;">
+                    <h4 class="quick_car">Quick Links</h4><br>
+                    <div class="liking_show">
+                        <a href="/about-us/" class="side_link heg_space">About Us</a><br>
+                        <a href="/academics/" class="side_link heg_space">Academics</a><br>
+                        <a href="/beyond-academics/" class="side_link">Beyond Academics</a><br>
+                        <a href="/Infrastructure/" class="side_link heg_space">Infrastructure</a><br>
+                        <a href="/gallery/" class="side_link heg_space">Gallery</a><br>
+                        <a href="/admission/" class="side_link heg_space">Admission</a><br>
+                        <a href="/contact-us/" class="side_link heg_space">Contact Us</a><br>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "header-all.html"%}
+{% block content %}
+{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  	<link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.6/tinymce.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.6/jquery.tinymce.min.js"></script>
+
+<div class="container register">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<h4 style="font-weight: 700;margin-top: 3%;line-height: 0px;">Create Job</h4>
+	</div>
+	<form action="/add-jobs/" method="POST">
+		{% csrf_token %}
+		<div class="">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{job_form.job_title}}
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{ job_form.slug }}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{job_form.qualification}}
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{ job_form.job_description }}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{job_form.job_duties}}
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{ job_form.desired_profile }}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{job_form.experience_qualification}}
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{ job_form.salary_range }}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{job_form.location}}
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 reg_mar">
+						{{ job_form.no_of_position }}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 reg_btn">
+				<button class="btn btn-success" type="submit">Save</button>
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}

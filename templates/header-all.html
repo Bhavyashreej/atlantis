@@ -1,0 +1,270 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/static/img/core-img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" id="main_styles">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">  
+	<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/classy-nav.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/custom-icon.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}">
+</head>
+<body>
+	<div id="preloader">
+        <i class="circle-preloader"></i>
+    </div>
+	 <header class="header-area">
+
+        <!-- Top Header Area -->
+        <div class="top-header">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="header-content h-100 d-flex align-items-center justify-content-between">
+                            <div class="academy-logo">
+                                <a href="/"><img src="/static/img/core-img/Logomain.png" class="width-logo-img" alt=""></a>
+                            </div>
+                            <div class="calling-info ">
+                            	<div class="call-center no_display">
+                                    <a class="hyperlink" href="/contact-us/">Contact Us&#x00A0;&#x00A0;</a>&#x00A0;&#x00A0;&#x00A0;| 
+                               		&#x00A0;&#x00A0;&#x00A0;<span class=""><i class="icon-telephone-2"></i>&#x00A0;+91 9299992040</span>
+                               	</div>
+                                <div class="call-center dis_paly">
+                                    <a class="hyperlink" href="/contact-us/">Contact Us</a><br>
+                                    <span class=""><i class="icon-telephone-2"></i>&#x00A0;&#x00A0;9299992040</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li class="nav-item"><a href="/about-us/">About Us</a></li>
+                                    <li class="nav-item"><a href="/academics/">Academics</a></li>
+                                    <li class="nav-item"><a href="/beyond-academics/">Beyond Academics</a></li>
+                                    <li class="nav-item"><a href="/Infrastructure/">Infrastructure</a></li>
+                                    <li class="nav-item"><a href="/gallery/">Gallery</a></li>
+                                    <li class="nav-item"><a href="/admission/">Admissions</a></li>
+                                    <li class="nav-item"><a href="/careers/">Careers</a></li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center" style="width: 180px;">
+                                <a href="/#inquiry_form">Enquiry Now</a>
+                            </div>
+                        </div>
+                        {% if request.user.is_authenticated %}
+                            <div class="drop_admin admin-color">
+                                <button class="dropbtn_admin">{{request.user}}</button>
+                                <div class="drop_admin-content">
+                                    <a  class="drop-width" href="/list-page/">Pages</a>
+                                    <a  class="drop-width" href="/list-news/">News</a>
+                                    <a  class="drop-width" href="/list-jobs/">Jobs</a>
+                                    <a  class="drop-width" href="/testinomial-list/">Testimonials</a>
+                                    <a  class="drop-width" href="/logout/">Logout</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <!-- <li class="nav-item"><a href="/">Home</a></li> -->
+                                    <li class="nav-item"><a href="/about-us/">About Us</a></li>
+                                    <li class="nav-item"><a href="/academics/">Academics</a></li>
+                                    <li class="nav-item"><a href="/beyond-academics/">Beyond Academics</a></li>
+                                    <li class="nav-item"><a href="/Infrastructure/">Infrastructure</a></li>
+                                    <li class="nav-item"><a href="/gallery/">Gallery</a></li>
+                                    <li class="nav-item"><a href="/admission/">Admissions</a></li>
+                                    <li class="nav-item"><a href="/careers/">Careers</a></li>
+                                    <!-- <li class="nav-item"><a href="/contact-us/">Contact Us</a></li> -->
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center" style="width: 180px;">
+                                <a href="/#inquiry_form">Enquiry Now</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </header>
+	{% block content %}{% endblock %}
+	<footer class="footer-area">
+        <div class="main-footer-area section-padding-100-0">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <a href="#"><img class="width-logo-img" src="/static/img/core-img/Logo_mono.png" alt=""></a>
+                            </div>
+                            <p class="p_testimonial content_justify home_four">Atlantis The World School is a K-12 School to match the standards of the best global schools in the country. It is founded by Atlantis Society, the organization that has striven to ensure future of the youth of the region by establishing several higher education institutions of merit.</p>
+                           <!--  <div class="footer-social-info">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-dribbble"></i></a>
+                                <a href="#"><i class="fa fa-behance"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="footer-widget mb-100 pad_footer">
+                            <div class="widget-title">
+                                <h6 class="heading_testimonial">Quick Links</h6>
+                            </div>
+                            <nav>
+                                <ul class="useful-links"><!-- 
+                                    <li><a class="p_testimonial p_testimonial_footer" href="/">Home</a></li> -->
+                                    <li><a class="p_testimonial p_testimonial_footer" href="/about-us/">About Us</a></li>
+                                    <li><a class="p_testimonial p_testimonial_footer" href="/academics/">Academics</a></li>
+                                    <li><a class="p_testimonial p_testimonial_footer" href="/infrastructure/">Infrastructure</a></li>
+                                    <li><a class="p_testimonial p_testimonial_footer" href="/gallery/">Gallery</a></li>
+                                    <li><a class="p_testimonial p_testimonial_footer" href="/admission/">Admissions</a></li>
+                                    <li><a class="p_testimonial p_testimonial_footer" href="/careers/">Careers</a></li>
+                                    <li><a class="p_testimonial p_testimonial_footer" href="/contact-us/">Contact Us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <h6 class="heading_testimonial">Contact</h6>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                                <i class="icon-placeholder"></i>
+                                <p class="p_testimonial">Atlantis The World School,<br>
+                                    Karakambadi Road,<br>
+                                    Tirupathi - 517 507.</p>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                                <i class="icon-telephone-1"></i>
+                                <p class="p_testimonial">+91 9299992040</p>
+                            </div>
+                            <div class="single-contact d-flex">
+                                <i class="icon-contract"></i>
+                                <p class="p_testimonial">contact@atlantisworldschool.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer-area">
+            <div class="container-fluid container_pad">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: left;">
+                        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>  Atlantis The World School. All rights reserved</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 social_foot">
+                        <a href="#" target="_blank"><i class="fa fa-facebook-square fa-2x  book" aria-hidden="true"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-twitter-square fa-2x  book" aria-hidden="true"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-linkedin-square fa-2x  book" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        var url = window.location;
+        $('ul li a[href="'+ url +'"]').parent().addClass('active');
+        $('ul li a').filter(function() {
+             return this.href == url;
+        }).parent().addClass('active');
+
+        // alert('hi');
+        $('div p a[href="'+ url +'"]').parent().addClass('active');
+        $('div p a').filter(function() {
+             return this.href == url;
+        }).parent().addClass('active');
+
+    });
+</script> 
+</body>
+
+</html>

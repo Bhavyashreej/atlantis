@@ -1,0 +1,17 @@
+{% extends "header-all.html" %}
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block keyword %}{% endblock %}
+{% load static %}
+{% block content %}
+<div class="breadcumb-area bg-img" style="background-image: url(/static/img/bg-img/breadcumb.jpg);">
+    <div class="bradcumbContent">
+        <h2>Testimonial</h2>
+    </div>
+</div><br><br>
+<div class="container-fluid container_pad bootom_size">
+	{% for test in test %}
+	<p>{{test.content|safe}}</p>
+	{% endfor %}
+</div>
+{% endblock %}

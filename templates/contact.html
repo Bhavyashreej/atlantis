@@ -1,0 +1,98 @@
+{% extends "header-all.html" %}
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block keyword %}{% endblock %}
+{% load static %}
+{% block content %}
+<div class="breadcumb-area bg-img" style="background-image: url(/static/img/bg-img/breadcumb.jpg);">
+    <div class="bradcumbContent">
+        <h2>Contact Us</h2>
+    </div>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Google Maps ##### -->
+<div class="map-area wow fadeInUp" data-wow-delay="300ms">
+    <!-- <div id="googleMap"><p><iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55155.3957246544!2d74.86110827581814!3d30.231023738926158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391731172aeedaaf%3A0x7d09b26e96ee593b!2sBaba%20Farid%20Group%20of%20Institutions!5e0!3m2!1sen!2sin!4v1575435470874!5m2!1sen!2sin" width="100%" height="600" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p></div> -->
+    <div id="googleMap"><p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15508.096155447238!2d79.46133988712033!3d13.656301624287638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4a54b9e9a1c7%3A0xf13a80886ce7028c!2sKarakambadi%20Rd%2C%20Tirupati%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1576921429909!5m2!1sen!2sin" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe></p></div>
+</div>
+
+<!-- ##### Contact Area Start ##### -->
+<section class="contact-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-content">
+                    <div class="row">
+                        <!-- Contact Information -->
+                        <div class="col-12 col-lg-5">
+                            <div class="contact-information wow fadeInUp" data-wow-delay="400ms">
+                                <div class="section-heading text-left">
+                                    <h3>Contact Us</h3>
+                                </div>
+
+                                <!-- Single Contact Info -->
+                                <div class="single-contact-info d-flex">
+                                    <div class="contact-icon mr-15">
+                                        <i class="icon-placeholder"></i>
+                                    </div>
+                                    <p>Atlantis The World School,<br>
+                                    Karakambadi Road,<br>
+                                    Tirupathi - 517 507.</p>
+                                </div>
+
+                                <!-- Single Contact Info -->
+                                <div class="single-contact-info d-flex">
+                                    <div class="contact-icon mr-15">
+                                        <i class="icon-telephone-1"></i>
+                                    </div>
+                                    <p>+91 9299992040</p>
+                                </div>
+
+                                <!-- Single Contact Info -->
+                                <div class="single-contact-info d-flex">
+                                    <div class="contact-icon mr-15">
+                                        <i class="icon-contract"></i>
+                                    </div>
+                                    <p>contact@atlantisworldschool.com</p>
+                                </div>
+                                  <!-- Contact Social Info -->
+                                <div class="contact-social-info d-flex mb-30">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Contact Form Area -->
+                        <div class="col-12 col-lg-7">
+                            <div class="contact-form-area wow fadeInUp" data-wow-delay="500ms">
+                                <h4 class="heading_testimonial">Admission Enquiry Form</h4>
+                                <form action="" method="POST" class="inquiry_form_desgn">
+                                 {% csrf_token %}
+                                    <input class="form-control" name="first_name" type="text" placeholder="Enter Your Student Name*">
+                                    <input class="form-control" name="parent_name" type="text" placeholder="Enter Your Parent Name*">
+                                    <input type="email" class="form-control"  name="email_name" id="email" placeholder="E-mail">
+                                    <input class="form-control" name="mobile" type="tel" placeholder="Enter Your Mobile Number Name*">
+                                    <select class="form-control" name="admission" style="height: 55px;color: #495057;">
+                                        <option>Admission for Class*</option>
+                                        <option>LKG</option>
+                                        <option>UKG</option>
+                                        <option>Class I</option>
+                                        <option>Class II</option>
+                                        <option>Class III</option>
+                                        <option>Class IV</option>
+                                        <option>Class V</option>
+                                    </select>
+                                    <textarea name="message" class="form-control" id="message" placeholder="Message" style="height: 100px;"></textarea>
+                                    <button class="btn academy-btn mt-30" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

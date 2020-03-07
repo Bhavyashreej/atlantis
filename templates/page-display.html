@@ -1,0 +1,46 @@
+{% extends "header-all.html" %}
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block keyword %}{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="breadcumb-area bg-img" style="background-image: url(/static/img/bg-img/breadcumb.jpg);">
+    <div class="bradcumbContent">
+        <h2>ffsf {{page_play.title}}</h2>
+    </div>
+</div>
+{% if slug == "about-us"  or  slug == "gallery"  %}
+<div class="container-fluid container_pad bootom_size">
+	{{page_play.content|safe}}
+</div>
+{% else %}
+<div class="container-fluid container_pad bootom_size">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="row col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-10 col-sm-10 col-xs-10">
+                <div class="row">  
+                    {{page_play.content|safe}}
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-2 no_display"> 
+            	<div style="position: sticky;top: 25%;" class="Quick_Links">
+	                <h4 class="quick">Quick Links</h4><br>
+	                <div class="liking_show">
+	                    <p><a href="/about-us/" class="side_link heg_space ">About Us</a></p>
+	                    <p><a href="/academics/" class="side_link heg_space">Academics</a></p>
+	                    <p><a href="/beyond-academics/" class="side_link ">Beyond Academics</a></p>
+	                    <p><a href="/Infrastructure/" class="side_link heg_space">Infrastructure</a></p>
+	                    <p><a href="/gallery/" class="side_link heg_space">Gallery</a></p>
+	                    <p><a href="/admission/" class="side_link heg_space">Admission</a></p>
+	                    <p><a href="/contact-us/" class="side_link heg_space">Contact Us</a></p>
+	                </div>
+	            </div> 
+            </div> 
+        </div>
+    </div>
+</div>
+<br>
+ 
+{% endif %}
+{% endblock %}

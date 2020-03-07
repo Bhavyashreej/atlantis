@@ -1,0 +1,19 @@
+{% extends "header-all.html" %}
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block keyword %}{% endblock %}
+{% load static %}
+{% block content %}
+<div class="breadcumb-area bg-img" style="background-image: url(/static/img/bg-img/breadcumb.jpg);">
+    <div class="bradcumbContent">
+        <h2>{{lastest.title}}</h2>
+    </div>
+</div>
+<div class="container-fluid container_pad bootom_size">
+	<section class="about-us-area mt-50 section-padding-100-0">
+		<p><i class="fa fa-calendar top_date"></i>&#x00A0;{{lastest.published_on|date:"d M, Y"}}</p>
+		{{lastest.content|safe}}
+	</section>
+</div>
+
+{% endblock %}
